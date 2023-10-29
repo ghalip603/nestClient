@@ -5,9 +5,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import appConfig from './configs/app.config';
 import dbConfig from './configs/db.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppCommonModule } from './common/app-common.module';
+import { AppCommonModule } from './modules/common/app-common.module';
 import { UserModule } from '../user/user.module';
-import { AppNotificationModule } from './notification/app-notification.module';
+import { AppNotificationModule } from './modules/notification/app-notification.module';
 
 @Module({
   imports: [
