@@ -5,6 +5,6 @@ import { UserCreatedEventHandler } from './events/user-created.event.handler';
 
 @Module({
   controllers: [UserCreateController],
-  providers: [CreateUserCommandHandler, UserCreatedEventHandler]
+  providers: [CreateUserCommandHandler, UserCreatedEventHandler],
 })
 export class UserCreateModule {}

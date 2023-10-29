@@ -1,5 +1,3 @@
-import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
-
 export interface CreateUserCommandParams {
   name: string;
   password: string;
