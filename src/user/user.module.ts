@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './entities/user.entity';
 import { UserSaga } from './sagas/user.saga';
 import { UserShowModule } from './modules/show/user-show.module';
+import { UserNotExistValidator } from './validators/user-not-exist.validator';
+import { UserExistQueryHandler } from './queries/user-exist.query.handler';
 
 @Module({
   imports: [
@@ -13,6 +15,11 @@ import { UserShowModule } from './modules/show/user-show.module';
     UserShowModule,
   ],
   exports: [TypeOrmModule],
-  providers: [UserEntitySubscriber, UserSaga],
+  providers: [
+    UserEntitySubscriber,
+    UserSaga,
+    UserNotExistValidator,
+    UserExistQueryHandler,
+  ],
 })
 export class UserModule {}

@@ -7,15 +7,15 @@ import {
   ValidatorOptions,
 } from 'class-validator';
 import { QueryBus } from '@nestjs/cqrs';
-import { UserExistQuery } from '../../queries/user-exist.query';
+import { UserExistQuery } from '../queries/user-exist.query';
 
 @Injectable()
 @ValidatorConstraint({ async: true })
 export class UserNotExistValidator implements ValidatorConstraintInterface {
   constructor(private readonly queryBus: QueryBus) {}
 
-  async validate(name: string, args: ValidationArguments) {
-    const result = await this.queryBus.execute(new UserExistQuery({ name }));
+  async validate(value: string, args: ValidationArguments) {
+    const result = await this.queryBus.execute(new UserExistQuery({ name:value }));
     return !result;
   }
 
@@ -25,7 +25,7 @@ export class UserNotExistValidator implements ValidatorConstraintInterface {
 }
 
 export const UserNotExist = (options?: ValidatorOptions) => {
-  return (object: object, propertyName: string) =>
+  return (object: Object, propertyName: string) =>
     registerDecorator({
       target: object.constructor,
       propertyName,
