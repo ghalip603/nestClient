@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppCommonModule } from './modules/common/app-common.module';
 import { UserModule } from '../user/user.module';
 import { AppNotificationModule } from './modules/notification/app-notification.module';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { AppNotificationModule } from './modules/notification/app-notification.m
     AppCommonModule,
     UserModule,
     AppNotificationModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
